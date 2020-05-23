@@ -75,7 +75,7 @@ vsftpd 2.3.4 - Backdoor Command Execution (Metasploit | exploits/unix/remote/174
 Shellcodes: No Result
 ```
 
-It seems this version is vulnerable. Use [Metasploit](https://github.com/rapid7/metasploit-framework) to get more information:
+It seems this version has a backdoor that allows command execution. Use [Metasploit](https://github.com/rapid7/metasploit-framework) to get more information:
 ```bash
 root@kali:~/htb/lame# metasploit
 
