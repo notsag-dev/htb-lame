@@ -8,7 +8,7 @@ IP: 10.10.10.3
 
 Level: Easy
 
-## Nmap scan
+## Enumeration
 [Nmap](https://github.com/nmap/nmap) scan on the target:
 
 `nmap -sV -sC -oN lame.nmap 10.10.10.3`
