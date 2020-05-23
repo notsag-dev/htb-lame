@@ -230,3 +230,4 @@ whoami
 root
 ```
 
+And that's it! We've got a root shell directly so go grab those user/root flags!
