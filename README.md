@@ -121,7 +121,7 @@ No luck here 😭
 Note that this backdoor can be easily exploited manually if the server is vulnerable. When connecting to the FTP server, it's enough to pass a smiley face as username `:)` to exploit it. Check out the [pastebin](https://pastebin.com/AetT9sS5) with the code diff of vsftpd that includes the code of the backdoor. Note that `0x3a` `0x29` in hexa represent `:` and `)` respectively.
 
 ## Samba
-Search using searchsploit:
+Let's move to Samba now. Search server's version using `searchsploit`:
 
 ```bash
 root@kali:~/htb# searchsploit samba 3.0.20
@@ -134,7 +134,7 @@ Samba < 3.0.20 - Remote Heap Overflow                                          |
 ------------------------------------------------------------------------------- ----------------------------------------
 ```
 
-Let's search in metasploit for the first one:
+Let's search on Metasploit for the first one:
 ```
 msf exploit(linux/samba/is_known_pipename) > search samba 3.0.20 | sort -n
 
