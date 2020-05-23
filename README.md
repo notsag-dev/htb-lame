@@ -120,15 +120,14 @@ No luck here 😭
 Search using searchsploit:
 
 ```bash
-root@kali:~/htb/lame# searchsploit samba 3.0.20
---------------------------------------------- ----------------------------------------
- Exploit Title                               |  Path
-                                             | (/usr/share/exploitdb/)
---------------------------------------------- ----------------------------------------
-Samba 3.0.20 < 3.0.25rc3 - 'Username' map sc | exploits/unix/remote/16320.rb
-Samba < 3.0.20 - Remote Heap Overflow        | exploits/linux/remote/7701.txt
---------------------------------------------- ----------------------------------------
-Shellcodes: No Result
+root@kali:~/htb# searchsploit samba 3.0.20
+------------------------------------------------------------------------------------------------------------------ ----------------------------------------
+ Exploit Title                                                                                                    |  Path
+                                                                                                                  | (/usr/share/exploitdb/)
+------------------------------------------------------------------------------------------------------------------ ----------------------------------------
+Samba 3.0.20 < 3.0.25rc3 - 'Username' map script' Command Execution (Metasploit)                                  | exploits/unix/remote/16320.rb
+Samba < 3.0.20 - Remote Heap Overflow                                                                             | exploits/linux/remote/7701.txt
+------------------------------------------------------------------------------------------------------------------ ----------------------------------------
 ```
 
 Search on metasploit:
