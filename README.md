@@ -131,7 +131,7 @@ Samba < 3.0.20 - Remote Heap Overflow        | exploits/linux/remote/7701.txt
 Shellcodes: No Result
 ```
 
-Search on metasploit
+Search on metasploit:
 ```
 msf > search samba 3.0.20
 
@@ -168,3 +168,4 @@ Matching Modules
    exploit/windows/smb/group_policy_startup               2015-01-26       manual     Group Policy Script Execution From Shared Resource
    post/linux/gather/enum_configs                                          normal     Linux Gather Configurations
 ```
+
