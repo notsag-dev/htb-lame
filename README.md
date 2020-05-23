@@ -60,20 +60,22 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 56.49 seconds
 ```
 
-## FTP service
+## FTP
 Let's see what we can get from the FTP service. First, search for exploits using [searchsploit](https://github.com/offensive-security/exploitdb):
 ```bash
-root@kali:~/htb/lame# searchsploit vsftpd 2.3.4
----------------------------------- ----------------------------------------
- Exploit Title                    |  Path
-                                  | (/usr/share/exploitdb/)
----------------------------------- ----------------------------------------
-vsftpd 2.3.4 - Backdoor Command E | exploits/unix/remote/17491.rb
----------------------------------- ----------------------------------------
+root@kali:~/htb/lame#  searchsploit vsftpd 2.3.4
+[*] exec: searchsploit vsftpd 2.3.4
+
+------------------------------------------------------ ----------------------------------------
+ Exploit Title                                        |  Path
+                                                      | (/usr/share/exploitdb/)
+------------------------------------------------------ ----------------------------------------
+vsftpd 2.3.4 - Backdoor Command Execution (Metasploit | exploits/unix/remote/17491.rb
+------------------------------------------------------ ----------------------------------------
 Shellcodes: No Result
 ```
 
-This may be interesting. Use [Metasploit](https://github.com/rapid7/metasploit-framework) to get more information:
+It seems this version is vulnerable. Use [Metasploit](https://github.com/rapid7/metasploit-framework) to get more information:
 ```bash
 root@kali:~/htb/lame# metasploit
 
