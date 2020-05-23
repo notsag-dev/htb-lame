@@ -6,7 +6,7 @@ OS: GNU/Linux
 
 IP: 10.10.10.3
 
-Level: Easy
+Difficulty: Easy
 
 ## Enumeration
 [Nmap](https://github.com/nmap/nmap) scan on the target:
