@@ -118,7 +118,7 @@ msf exploit(unix/ftp/vsftpd_234_backdoor) > exploit
 ```
 No luck here 😭
 
-This backdoor can be easily exploited manually if the server is vulnerable. When connecting to the FTP server, it's enough to pass a smiley face as username `:)` to exploit it. Check out the [pastebin](https://pastebin.com/AetT9sS5) with the code diff of vsftpd that includes the code of the backdoor. Note that `0x3a` `0x29` in hexa represent `:` and `)` respectively.
+Note that this backdoor can be easily exploited manually if the server is vulnerable. When connecting to the FTP server, it's enough to pass a smiley face as username `:)` to exploit it. Check out the [pastebin](https://pastebin.com/AetT9sS5) with the code diff of vsftpd that includes the code of the backdoor. Note that `0x3a` `0x29` in hexa represent `:` and `)` respectively.
 
 ## Samba
 Search using searchsploit:
