@@ -60,7 +60,7 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 56.49 seconds
 ```
 ## Exploitation
-### FTP
+### FTP server
 Let's see what we can get from the FTP service. First, search for exploits using [searchsploit](https://github.com/offensive-security/exploitdb):
 ```bash
 root@kali:~/htb/lame#  searchsploit vsftpd 2.3.4
@@ -120,7 +120,7 @@ No luck here 😭
 
 Note that this backdoor can be easily exploited manually if the server is vulnerable. When connecting to the FTP server, it's enough to pass a smiley face as username `:)` to exploit it. Check out the [pastebin](https://pastebin.com/AetT9sS5) with the code diff of vsftpd that includes the code of the backdoor. Note that `0x3a` `0x29` in hexa represent `:` and `)` respectively.
 
-### Samba
+### Samba server
 Let's move to Samba now. Search server's version using `searchsploit`:
 
 ```bash
